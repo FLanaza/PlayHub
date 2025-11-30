@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHub - Game Library Organizer System</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <div class="top-bar">
+            <div class="user-profile-container">
+                <button id="profile-btn" class="icon-btn" title="Account Settings"><i class="fas fa-user-circle fa-lg"></i></button>
+                
+                <div id="user-menu" class="user-menu-popup hidden">
+                    <div class="menu-header">
+                        <h4>Account</h4>
+                        <button id="close-menu-btn" class="close-btn">&times;</button>
+                    </div>
+                    <button class="menu-item"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                    <button class="menu-item"><i class="fas fa-user-plus"></i> Sign Up</button>
+                    <button class="menu-item"><i class="fas fa-key"></i> Forgot Password</button>
+                    <hr>
+                    <p class="account-note">Using connected launchers (Steam, Epic, GOG)</p>
+                </div>
+            </div>
+
+            <div class="logo">
+                <i class="fas fa-rocket"></i> PlayHub
+            </div>
+            
+            <div class="search-bar">
+                <input id="search-input" type="text" placeholder="Search games...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="top-actions">
+                <button id="friends-btn" class="icon-btn" title="Friends List"><i class="fas fa-users"></i> Friends</button>
+                <button id="settings-btn" class="icon-btn" title="Settings"><i class="fas fa-cog"></i> Settings</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>GAME LIBRARY</h3>
+                    <button id="add-game-opener" class="add-game-btn"><i class="fas fa-plus"></i> Add Game</button>
+                </div>
+                
+                <div class="game-list-filters">
+                    <select id="sort-by">
+                        <option value="title-asc">Title A-Z</option>
+                        <option value="playtime">Playtime</option>
+                        <option value="favorite">Favorites</option>
+                    </select>
+                    <select id="filter-genre">
+                        <option value="all">All Genres</option>
+                    </select>
+                    <select id="filter-status">
+                        <option value="all">All Statuses</option>
+                    </select>
+                </div>
+
+                <div class="game-list">
+                    </div>
+            </div>
+
+            <div class="game-details-panel">
+                <div class="game-details-header">
+                    <img id="detail-background-image" src="" alt="Game Background" class="detail-background-image">
+                    <div class="detail-overlay">
+                        <h2 id="detail-title"></h2>
+                        <div class="detail-actions">
+                            <button class="play-btn"><i class="fas fa-play"></i> Play</button>
+                            <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button id="favorite-btn" class="icon-btn favorite-toggle"><i class="far fa-star"></i></button> 
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span id="detail-playtime"></span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="detail-lastplayed"></span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-tags"></i>
+                                <span id="detail-genre"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-content">
+                    <h3>Game Information</h3>
+                    <p><strong>Platform:</strong> <span id="detail-platform"></span></p>
+                    <p><strong>Status:</strong> <span id="detail-status"></span></p>
+
+                    <h3>Description</h3>
+                    <p id="detail-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="add-game-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3><i class="fas fa-plus-circle"></i> Add New Game</h3>
+            <label for="new-title">Title:</label><input type="text" id="new-title" placeholder="e.g., God of War">
+            <label for="new-genre">Genre:</label><input type="text" id="new-genre" placeholder="e.g., Action RPG">
+            <label for="new-status">Status:</label>
+            <select id="new-status">
+                <option>Installed</option>
+                <option>Not Installed</option>
+                <option>Completed</option>
+                <option>Abandoned</option>
+            </select>
+            <div class="modal-actions">
+                <button id="save-new-game" class="play-btn"><i class="fas fa-save"></i> Save Game</button>
+                <button id="close-modal-btn" class="cancel-btn"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+            <p class="modal-note">Note: Cover and background images are placeholders for manual additions.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
